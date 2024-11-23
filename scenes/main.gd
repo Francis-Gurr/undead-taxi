@@ -18,13 +18,18 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var player_chunk: Vector2i = Vector2i(floor(car.position / CHUNK_WIDTH))
 	print(car.position, player_chunk)
-	if !drawn_chunks.has(str(player_chunk)):
-		print("draw new", player_chunk)
-		draw_chunk(player_chunk)
-		drawn_chunks[str(player_chunk)] = true
+	print("draw new", player_chunk)
+	draw_surrounding_chunks(player_chunk)
 	pass
 
-
+func draw_surrounding_chunks(player_chunk: Vector2i) -> void:
+	for x in range(player_chunk.x-1, player_chunk.x+2):
+		for y in range(player_chunk.y-1, player_chunk.y+2):
+			var chunk = Vector2i(x,y)
+			if !drawn_chunks.has(str(chunk)):
+				draw_chunk(chunk)
+				drawn_chunks[str(chunk)] = true
+	
 func draw_chunk(chunk: Vector2i) -> void:
 	var weights = PackedFloat32Array([0, 16, 4, 1])
 	for x in range(16):
@@ -34,5 +39,6 @@ func draw_chunk(chunk: Vector2i) -> void:
 			var tile_y = chunk.y * 16 + y
 			tile_map_layer.set_cell(Vector2i(tile_x, tile_y), 0, tile)
 	
-	
+
+
 	
