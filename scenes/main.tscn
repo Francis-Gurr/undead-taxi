@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://de1hhjmwwpvt1"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_cysi0"]
+[ext_resource type="Texture2D" uid="uid://l4apegedofnd" path="res://assets/world/terrain/dirt.png" id="2_x25pf"]
+[ext_resource type="PackedScene" uid="uid://bmgrkwvh713xo" path="res://scenes/car/car.tscn" id="5_hmkoo"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ed74d"]
+texture = ExtResource("2_x25pf")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ul2ap"]
+sources/0 = SubResource("TileSetAtlasSource_ed74d")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_cysi0")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_ul2ap")
+
+[node name="Node2D" parent="." instance=ExtResource("5_hmkoo")]
+position = Vector2(135, 100)

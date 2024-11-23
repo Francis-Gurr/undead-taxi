@@ -1,0 +1,120 @@
+[gd_scene load_steps=13 format=3 uid="uid://bmgrkwvh713xo"]
+
+[ext_resource type="Script" path="res://scenes/car/car.gd" id="1_5r4y2"]
+[ext_resource type="Texture2D" uid="uid://uknofi828ggx" path="res://all_assets/TopDownVehicles/JEEP TOP DOWN/Yellow/Yellow_JEEP_CLEAN_8D_000-sheet.png" id="1_13w5d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umup2"]
+atlas = ExtResource("1_13w5d")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3ago"]
+atlas = ExtResource("1_13w5d")
+region = Rect2(0, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0njh0"]
+atlas = ExtResource("1_13w5d")
+region = Rect2(100, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o528"]
+atlas = ExtResource("1_13w5d")
+region = Rect2(200, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1i8m"]
+atlas = ExtResource("1_13w5d")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svgw8"]
+atlas = ExtResource("1_13w5d")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivgan"]
+atlas = ExtResource("1_13w5d")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8ly5"]
+atlas = ExtResource("1_13w5d")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ivegl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umup2")
+}],
+"loop": true,
+"name": &"east",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3ago")
+}],
+"loop": true,
+"name": &"north",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0njh0")
+}],
+"loop": true,
+"name": &"north-east",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1o528")
+}],
+"loop": true,
+"name": &"north-west",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1i8m")
+}],
+"loop": true,
+"name": &"south",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svgw8")
+}],
+"loop": true,
+"name": &"south-east",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivgan")
+}],
+"loop": true,
+"name": &"south-west",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8ly5")
+}],
+"loop": true,
+"name": &"west",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jum68"]
+size = Vector2(60, 46)
+
+[node name="Node2D" type="CharacterBody2D"]
+scale = Vector2(0.25, 0.25)
+motion_mode = 1
+script = ExtResource("1_5r4y2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ivegl")
+animation = &"east"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jum68")
+
+[node name="Camera2D" type="Camera2D" parent="."]
