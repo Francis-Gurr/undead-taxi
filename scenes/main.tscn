@@ -20,5 +20,5 @@ script = ExtResource("1_cysi0")
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_ul2ap")
 
-[node name="Node2D" parent="." instance=ExtResource("5_hmkoo")]
+[node name="Car" parent="." instance=ExtResource("5_hmkoo")]
 position = Vector2(135, 100)
