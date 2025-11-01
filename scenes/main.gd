@@ -17,10 +17,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var player_chunk: Vector2i = Vector2i(floor(car.position / CHUNK_WIDTH))
-	print(car.position, player_chunk)
-	print("draw new", player_chunk)
 	draw_surrounding_chunks(player_chunk)
-	pass
 
 func draw_surrounding_chunks(player_chunk: Vector2i) -> void:
 	for x in range(player_chunk.x-1, player_chunk.x+2):
